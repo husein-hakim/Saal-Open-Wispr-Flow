@@ -1,0 +1,9 @@
+models/
+*.wav
+*.m4a
+recording.wav
+raw.txt
+final.txt
+
+engine/whisper.cpp/build/
+engine/llama.cpp/build/

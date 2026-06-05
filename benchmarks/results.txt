@@ -1,0 +1,2622 @@
+Whisper Benchmark Results
+=========================
+
+MODEL: tiny.en
+-------------------------
+
+FILE: casual_message.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1033d8340 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1033d8480 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/casual_message.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/casual_message.wav' (253931 samples, 15.9 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ him and just want to check if he's still on for tomorrow. I think you're meeting around there but I'm not completely sure. Also, if you've got a latest deck, could you send over whenever you get a chance? No rush for anything, I just want to take a look before the meeting.
+whisper_print_timings:     load time =    38.63 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.52 ms
+whisper_print_timings:   sample time =    45.44 ms /   321 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    20.52 ms /     1 runs (    20.52 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =   101.77 ms /   318 runs (     0.32 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   217.87 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.17
+sys 0.05
+
+FILE: clean_long.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1052c43b0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1052c44f0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/clean_long.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/clean_long.wav' (503744 samples, 31.5 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Today I spend most of my time working on the open source version of whisper floor. The first thing I focus on was getting whisper running locally on my machine and testing different model sizes. After that, I started comparing transcription, speed and memory usage to understand which model would be best for lower end hardware. My next step is to build a simple application that records audio from the microphone, transcribes it locally, and copies result to the [BLANK_AUDIO]
+whisper_print_timings:     load time =    35.29 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     6.71 ms
+whisper_print_timings:   sample time =    68.50 ms /   492 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    29.66 ms /     2 runs (    14.83 ms per run)
+whisper_print_timings:   decode time =     1.75 ms /     2 runs (     0.88 ms per run)
+whisper_print_timings:   batchd time =    94.78 ms /   484 runs (     0.20 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   249.81 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.24
+sys 0.06
+
+FILE: clean_short.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1053a44f0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1053a4630 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/clean_short.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/clean_short.wav' (82880 samples, 5.2 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Here, John, I'll send the presentation tomorrow morning.
+whisper_print_timings:     load time =    33.04 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     1.31 ms
+whisper_print_timings:   sample time =     8.37 ms /    59 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    20.63 ms /     1 runs (    20.63 ms per run)
+whisper_print_timings:   decode time =     0.82 ms /     1 runs (     0.82 ms per run)
+whisper_print_timings:   batchd time =    12.53 ms /    55 runs (     0.23 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =    83.38 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.06
+sys 0.04
+
+FILE: email_dictation.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1053cc0c0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1053cc000 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/email_dictation.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/email_dictation.wav' (327317 samples, 20.5 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hi David, I hope you do it well. I want to follow up regarding the design assets we discussed last week. The latest version looks great and I think we are very close to finalizing everything. If possible, could you send over the updated files by Friday so we can move forward with the implementation? Thanks again.
+whisper_print_timings:     load time =    34.12 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     4.47 ms
+whisper_print_timings:   sample time =    46.80 ms /   331 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    20.63 ms /     1 runs (    20.63 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    62.16 ms /   328 runs (     0.19 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   179.17 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.18
+sys 0.05
+
+FILE: fast_speech.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1019ec330 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1019ec430 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/fast_speech.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/fast_speech.wav' (175424 samples, 11.0 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Okay, so what I'm trying to do right now is compare the performance of different risk flow models and figure out which one gives the best bands between speed memory users and transcription quality on lower end devices.
+whisper_print_timings:     load time =    32.96 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     2.74 ms
+whisper_print_timings:   sample time =    30.63 ms /   211 runs (     0.15 ms per run)
+whisper_print_timings:   encode time =    20.68 ms /     1 runs (    20.68 ms per run)
+whisper_print_timings:   decode time =     1.80 ms /     2 runs (     0.90 ms per run)
+whisper_print_timings:   batchd time =    39.32 ms /   206 runs (     0.19 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   139.84 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.13
+sys 0.05
+
+FILE: indian_accent.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x105008150 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x105008290 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/indian_accent.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/indian_accent.wav' (284651 samples, 17.8 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Let's schedule the meeting for next Wednesday and discuss the deployment architecture. I think we should finalize the backend implementation before moving to the user interface. Once that's done, we can begin testing the application with a small group of users.
+whisper_print_timings:     load time =    35.97 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     4.10 ms
+whisper_print_timings:   sample time =    37.36 ms /   247 runs (     0.15 ms per run)
+whisper_print_timings:   encode time =    21.02 ms /     1 runs (    21.02 ms per run)
+whisper_print_timings:   decode time =     0.93 ms /     1 runs (     0.93 ms per run)
+whisper_print_timings:   batchd time =    45.92 ms /   243 runs (     0.19 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   157.99 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.14
+sys 0.05
+
+FILE: noisy_cafe.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x101354290 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1013543d0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/noisy_cafe.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/noisy_cafe.wav' (223893 samples, 14.0 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ I don't know my job. I just wanted to try it out, but I don't know what I'm going to do. I'll give you the notes and I'll give you the script from myself. If you send over the notes, then you'll get the chance. Thanks.
+whisper_print_timings:     load time =    35.91 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.97 ms
+whisper_print_timings:   sample time =    41.02 ms /   298 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    25.63 ms /     1 runs (    25.63 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    53.85 ms /   295 runs (     0.18 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   172.58 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.16
+sys 0.06
+
+FILE: noisy_street.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x104ba4070 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x104ba41b0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.011 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/noisy_street.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/noisy_street.wav' (250176 samples, 15.6 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ I'm currently walking outside by testing the space where the space fits the size, partially and what is the background noise. To get the body to help evaluate how well the body becomes easier for consistency.
+whisper_print_timings:     load time =    33.77 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.44 ms
+whisper_print_timings:   sample time =    28.85 ms /   206 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    20.21 ms /     1 runs (    20.21 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    38.52 ms /   203 runs (     0.19 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   135.93 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.13
+sys 0.05
+
+FILE: realistic_dictation.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1011e0500 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1011e0640 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/realistic_dictation.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/realistic_dictation.wav' (556693 samples, 34.8 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Okay, so the goal of this project is to build an open source version of WISPA flow that runs completely locally on device. Right now, focusing on getting WISPA working efficiently and benchmarking different model sizes. Eventually, I want the application to record all of you from the microphone, transcribe it locally, rewrite the text using a small local language model, and then paste the final result directly into whatever application the users can reuse it. biggest challenge is to make it short for you this instant even on the water and the hardware.
+whisper_print_timings:     load time =    38.24 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     7.36 ms
+whisper_print_timings:   sample time =    76.19 ms /   556 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    34.70 ms /     2 runs (    17.35 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =   101.51 ms /   550 runs (     0.18 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   270.48 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.26
+sys 0.07
+
+FILE: technical_terms.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-tiny.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x103914b40 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x103914c80 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.011 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 384
+whisper_model_load: n_audio_head  = 6
+whisper_model_load: n_audio_layer = 4
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 384
+whisper_model_load: n_text_head   = 6
+whisper_model_load: n_text_layer  = 4
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 1 (tiny)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: compute buffer (conv)   =   14.17 MB
+whisper_init_state: compute buffer (encode) =   19.93 MB
+whisper_init_state: compute buffer (cross)  =   20.02 MB
+whisper_init_state: compute buffer (decode) =   96.83 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/technical_terms.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/technical_terms.wav' (406165 samples, 25.4 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Today we're testing whisper.cpp to get it with llama.cpp and evaluating quantization performance using Q50 and Q80 models. The application is reference 50i and integrates oML, metal, accelerational, superbase, postgres, post, create SQL and local large language models for text rewriting.
+whisper_print_timings:     load time =    35.83 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     5.56 ms
+whisper_print_timings:   sample time =    44.74 ms /   323 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    26.14 ms /     1 runs (    26.14 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    60.11 ms /   320 runs (     0.19 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   184.79 ms
+ggml_metal_free: deallocating
+real 0.57
+user 0.18
+sys 0.06
+
+MODEL: base.en
+-------------------------
+
+FILE: casual_message.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102c2c1e0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102c2c320 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.010 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/casual_message.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/casual_message.wav' (253931 samples, 15.9 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hey man, just want to check if we're still on for tomorrow. I think we're meeting around there, but I'm not completely sure. Also, if you've got a latest deck, could you send it over whenever you get a chance? No rush for anything, I just want to take a look before the meeting.
+whisper_print_timings:     load time =    50.22 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.63 ms
+whisper_print_timings:   sample time =    47.29 ms /   337 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    36.10 ms /     1 runs (    36.10 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    89.35 ms /   334 runs (     0.27 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   236.15 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.18
+sys 0.07
+
+FILE: clean_long.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x104b942b0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x104b943f0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.012 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/clean_long.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/clean_long.wav' (503744 samples, 31.5 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Today I spent most of my time working on the open-source version of Whisperflow. The first thing I focused on was getting Whisper running locally on my machine and testing different model sizes. After that I started comparing transcription, speed and memory usage to understand which model would be best for lower-end hardware. My next step is to build a simple application that records all you from the microphone, transcribes it locally and copies the result to the clipboard. [BLANK_AUDIO]
+whisper_print_timings:     load time =    52.35 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     7.05 ms
+whisper_print_timings:   sample time =    69.72 ms /   503 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    51.44 ms /     2 runs (    25.72 ms per run)
+whisper_print_timings:   decode time =     4.37 ms /     4 runs (     1.09 ms per run)
+whisper_print_timings:   batchd time =   131.51 ms /   493 runs (     0.27 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   326.83 ms
+ggml_metal_free: deallocating
+real 0.57
+user 0.26
+sys 0.08
+
+FILE: clean_short.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1011c85d0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1011c8710 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.011 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/clean_short.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/clean_short.wav' (82880 samples, 5.2 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hey John, I'll send the presentation tomorrow morning.
+whisper_print_timings:     load time =    51.62 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     1.32 ms
+whisper_print_timings:   sample time =     7.20 ms /    56 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    20.29 ms /     1 runs (    20.29 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    17.06 ms /    53 runs (     0.32 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   106.75 ms
+ggml_metal_free: deallocating
+real 0.57
+user 0.07
+sys 0.05
+
+FILE: email_dictation.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1013fc250 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1013fc350 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.010 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/email_dictation.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/email_dictation.wav' (327317 samples, 20.5 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hi David, I hope you're doing well. I want to follow up regarding the design assets we discussed last week. The latest version looks great and I think we are very close to finalizing everything. If possible, could you send over the updated files by Friday so we can move forward with the implementation? Thanks again.
+whisper_print_timings:     load time =    49.18 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     4.43 ms
+whisper_print_timings:   sample time =    44.57 ms /   330 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    27.62 ms /     1 runs (    27.62 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    85.58 ms /   327 runs (     0.26 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   220.79 ms
+ggml_metal_free: deallocating
+real 0.57
+user 0.18
+sys 0.07
+
+FILE: fast_speech.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x105218810 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x105218950 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.011 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/fast_speech.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/fast_speech.wav' (175424 samples, 11.0 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Okay, so what I'm trying to do right now is compare the performance of different VISTO models and figure out which one gives the best bands between speed memory users and transcripts in quality on lower end devices.
+whisper_print_timings:     load time =    51.93 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     2.61 ms
+whisper_print_timings:   sample time =    29.09 ms /   218 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    30.86 ms /     1 runs (    30.86 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    57.97 ms /   215 runs (     0.27 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   181.82 ms
+ggml_metal_free: deallocating
+real 0.57
+user 0.14
+sys 0.06
+
+FILE: indian_accent.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1030c84f0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1030c8630 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.011 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/indian_accent.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/indian_accent.wav' (284651 samples, 17.8 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Let's schedule the meeting for next Wednesday and discuss deployment architecture. I think we should finalize a backend implementation before moving to the user interface. Once that's done, we can begin testing the application with a small group of users.
+whisper_print_timings:     load time =    49.44 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.77 ms
+whisper_print_timings:   sample time =    32.53 ms /   239 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    37.49 ms /     1 runs (    37.49 ms per run)
+whisper_print_timings:   decode time =     1.15 ms /     1 runs (     1.15 ms per run)
+whisper_print_timings:   batchd time =    63.16 ms /   235 runs (     0.27 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   196.94 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.15
+sys 0.06
+
+FILE: noisy_cafe.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x100e202b0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x100e203b0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.012 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/noisy_cafe.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/noisy_cafe.wav' (223893 samples, 14.0 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ My drawing, I decided to try out without knowing anything I'd like to see. I reviewed the notes and I couldn't look straight from my side. Did you send me the latest version of the proposal when you get the chance? Thanks.
+whisper_print_timings:     load time =    53.43 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.02 ms
+whisper_print_timings:   sample time =    32.27 ms /   245 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    30.50 ms /     1 runs (    30.50 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    65.22 ms /   242 runs (     0.27 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   193.94 ms
+ggml_metal_free: deallocating
+real 0.57
+user 0.15
+sys 0.06
+
+FILE: noisy_street.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1018c44e0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1018c4620 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/noisy_street.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/noisy_street.wav' (250176 samples, 15.6 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ I am currently walking outside by the Christmas tree, connecting the Christmas tree. The cars pass by and lot of them back by now. So this recording should help evaluate how well the model performs in real-world conditions.
+whisper_print_timings:     load time =    52.60 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.56 ms
+whisper_print_timings:   sample time =    31.38 ms /   223 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    34.90 ms /     1 runs (    34.90 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =    59.81 ms /   220 runs (     0.27 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   192.08 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.14
+sys 0.07
+
+FILE: realistic_dictation.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102ee4150 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102ee4090 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.010 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/realistic_dictation.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/realistic_dictation.wav' (556693 samples, 34.8 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Okay, so the goal of this project is to build an open source version of whisper flow that runs completely locally on device. Right now I'm focusing on getting whisper working efficiently and benchmarking different model sizes. Eventually I want the application to record all of you from the microphone, transcribe it locally, rewrite the text using a small local language model and then paste the final result directly into whatever application the users currently using. biggest challenge is making sure it feels instant even on board and hardware.
+whisper_print_timings:     load time =    52.15 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     7.41 ms
+whisper_print_timings:   sample time =    68.12 ms /   505 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    53.78 ms /     2 runs (    26.89 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =   132.17 ms /   499 runs (     0.26 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   324.35 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.26
+sys 0.08
+
+FILE: technical_terms.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-base.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1010ac190 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1010ac2d0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 512
+whisper_model_load: n_audio_head  = 8
+whisper_model_load: n_audio_layer = 6
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 512
+whisper_model_load: n_text_head   = 8
+whisper_model_load: n_text_layer  = 6
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 2 (base)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   147.37 MB
+whisper_model_load: model size    =  147.37 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =    6.29 MB
+whisper_init_state: kv cross size =   18.87 MB
+whisper_init_state: kv pad  size  =    3.15 MB
+whisper_init_state: compute buffer (conv)   =   17.24 MB
+whisper_init_state: compute buffer (encode) =   26.31 MB
+whisper_init_state: compute buffer (cross)  =   38.45 MB
+whisper_init_state: compute buffer (decode) =   97.29 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/technical_terms.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/technical_terms.wav' (406165 samples, 25.4 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Today we are testing whisper.cpp to gather with llama.cpp and evaluating quantization performance using Q50 and Q80 models. The application is written as 50Y and integrates OML, metal acceleration, super base, Postgres, Post gray SQL and local large language models for text relighting.
+whisper_print_timings:     load time =    48.22 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     5.39 ms
+whisper_print_timings:   sample time =    43.76 ms /   310 runs (     0.14 ms per run)
+whisper_print_timings:   encode time =    28.21 ms /     1 runs (    28.21 ms per run)
+whisper_print_timings:   decode time =     1.18 ms /     1 runs (     1.18 ms per run)
+whisper_print_timings:   batchd time =    81.00 ms /   306 runs (     0.26 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   219.62 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.18
+sys 0.06
+
+MODEL: small.en
+-------------------------
+
+FILE: casual_message.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102fe00b0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102fe01f0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/casual_message.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/casual_message.wav' (253931 samples, 15.9 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hey man, just wanted to check if we're still on for tomorrow. I think we're meeting around there, but I'm not completely sure. Also, if you've got the latest deck, could you send it over whenever you get a chance? No rush for anything, I just want to take a look before the meeting.
+whisper_print_timings:     load time =   160.67 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.78 ms
+whisper_print_timings:   sample time =    43.63 ms /   337 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =   128.30 ms /     1 runs (   128.30 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =   240.93 ms /   334 runs (     0.72 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   607.45 ms
+ggml_metal_free: deallocating
+real 1.06
+user 0.22
+sys 0.16
+
+FILE: clean_long.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1010f56e0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1010f5820 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/clean_long.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/clean_long.wav' (503744 samples, 31.5 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Today, I spent most of my time working on the open source version of Whisperflow. The first thing I focused on was getting Whisper running locally on my machine and testing different model sizes. After that, I started comparing transcription speed and memory usage to understand which model would be best for lower end hardware. My next step is to build a simple application that records audio from the microphone, transcribes it locally and copies the result to the clipboard. Thank you.
+whisper_print_timings:     load time =   123.02 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     6.61 ms
+whisper_print_timings:   sample time =    63.71 ms /   484 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =   115.05 ms /     2 runs (    57.53 ms per run)
+whisper_print_timings:   decode time =     9.49 ms /     4 runs (     2.37 ms per run)
+whisper_print_timings:   batchd time =   278.63 ms /   474 runs (     0.59 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   617.27 ms
+ggml_metal_free: deallocating
+real 1.06
+user 0.29
+sys 0.13
+
+FILE: clean_short.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1059e9720 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1059e9820 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/clean_short.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/clean_short.wav' (82880 samples, 5.2 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hey John, I'll send a presentation tomorrow morning.
+whisper_print_timings:     load time =   122.20 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     1.40 ms
+whisper_print_timings:   sample time =     7.76 ms /    59 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    63.84 ms /     1 runs (    63.84 ms per run)
+whisper_print_timings:   decode time =     2.42 ms /     1 runs (     2.42 ms per run)
+whisper_print_timings:   batchd time =    35.44 ms /    55 runs (     0.64 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   252.25 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.10
+sys 0.11
+
+FILE: email_dictation.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102b39700 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x102b39840 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/email_dictation.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/email_dictation.wav' (327317 samples, 20.5 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hi David, I hope you're doing well. I want to follow up regarding the design assets we discussed last week. The latest version looks great and I think we are very close to finalizing everything. If possible, could you send over the updated files by Friday so we can move forward with the implementation? Thanks again.
+whisper_print_timings:     load time =   124.04 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     4.25 ms
+whisper_print_timings:   sample time =    43.61 ms /   330 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    63.71 ms /     1 runs (    63.71 ms per run)
+whisper_print_timings:   decode time =     2.42 ms /     1 runs (     2.42 ms per run)
+whisper_print_timings:   batchd time =   189.51 ms /   326 runs (     0.58 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   446.99 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.22
+sys 0.12
+
+FILE: fast_speech.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x100d954c0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x100d95600 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.009 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/fast_speech.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/fast_speech.wav' (175424 samples, 11.0 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Okay, so what I'm trying to do right now is compare the performance of different VSCO models and figure out which one gives the best balance between speed memory uses and transcription quality on lower end devices.
+whisper_print_timings:     load time =   122.69 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     2.60 ms
+whisper_print_timings:   sample time =    27.51 ms /   215 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    63.81 ms /     1 runs (    63.81 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =   125.99 ms /   212 runs (     0.59 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   360.41 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.16
+sys 0.11
+
+FILE: indian_accent.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1054bd570 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1054bd670 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/indian_accent.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/indian_accent.wav' (284651 samples, 17.8 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Let's schedule a meeting for next Wednesday and discuss the deployment architecture. I think we should finalize the backend implementation before moving to the user interface. Once that's done, we can begin testing the application with a small group of users.
+whisper_print_timings:     load time =   124.89 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.83 ms
+whisper_print_timings:   sample time =    32.15 ms /   247 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    63.83 ms /     1 runs (    63.83 ms per run)
+whisper_print_timings:   decode time =     4.86 ms /     2 runs (     2.43 ms per run)
+whisper_print_timings:   batchd time =   140.15 ms /   242 runs (     0.58 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   389.92 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.18
+sys 0.12
+
+FILE: noisy_cafe.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x105a95500 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x105a95640 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/noisy_cafe.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/noisy_cafe.wav' (223893 samples, 14.0 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Hi John, I just wanted to follow up regarding an item you had yesterday. I reviewed the notes and everything looks good from my side. Could you send out a notice version of it if you're posing when you get the chance? Thanks.
+whisper_print_timings:     load time =   120.31 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.00 ms
+whisper_print_timings:   sample time =    32.07 ms /   250 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    63.76 ms /     1 runs (    63.76 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =   143.36 ms /   247 runs (     0.58 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   382.11 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.18
+sys 0.12
+
+FILE: noisy_street.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x101781660 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1017817a0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/noisy_street.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/noisy_street.wav' (250176 samples, 15.6 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ I am currently walking outside while testing the speed tracking the film system. The cars passing by and water back our noise. So this recording should help evaluate how well the model performed in real world conditions.
+whisper_print_timings:     load time =   121.64 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     3.31 ms
+whisper_print_timings:   sample time =    26.76 ms /   207 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    63.69 ms /     1 runs (    63.69 ms per run)
+whisper_print_timings:   decode time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:   batchd time =   119.93 ms /   204 runs (     0.59 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   356.31 ms
+ggml_metal_free: deallocating
+real 0.56
+user 0.16
+sys 0.12
+
+FILE: realistic_dictation.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x101975600 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x101975740 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/realistic_dictation.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/realistic_dictation.wav' (556693 samples, 34.8 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Okay, so the goal of this project is to build an open-source version of Whisperflow that runs completely locally on-device. Right now, I'm focusing on getting Whisper working efficiently and benchmarking different model sizes. Eventually, I want the application to record audio from the microphone, transcribe it locally, rewrite the text using a small local language model, and then paste the final result directly into whatever application the user is currently using. The biggest challenge is making sure it feels instant even on the working hardware.
+whisper_print_timings:     load time =   121.00 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     7.00 ms
+whisper_print_timings:   sample time =    49.39 ms /   453 runs (     0.11 ms per run)
+whisper_print_timings:   encode time =   114.68 ms /     2 runs (    57.34 ms per run)
+whisper_print_timings:   decode time =     4.71 ms /     2 runs (     2.35 ms per run)
+whisper_print_timings:   batchd time =   297.50 ms /   445 runs (     0.67 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   615.46 ms
+ggml_metal_free: deallocating
+real 1.06
+user 0.29
+sys 0.13
+
+FILE: technical_terms.wav
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-small.en.bin'
+whisper_init_with_params_no_state: use gpu    = 1
+whisper_init_with_params_no_state: flash attn = 1
+whisper_init_with_params_no_state: gpu_device = 0
+whisper_init_with_params_no_state: dtw        = 0
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x104e3d640 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x104e3d780 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.008 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 19069.67 MB
+whisper_init_with_params_no_state: devices    = 3
+whisper_init_with_params_no_state: backends   = 3
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51864
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 768
+whisper_model_load: n_audio_head  = 12
+whisper_model_load: n_audio_layer = 12
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 768
+whisper_model_load: n_text_head   = 12
+whisper_model_load: n_text_layer  = 12
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 3 (small)
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:         MTL0 total size =   487.00 MB
+whisper_model_load: model size    =  487.00 MB
+whisper_backend_init_gpu: device 0: MTL0 (type: 1)
+whisper_backend_init_gpu: found GPU device 0: MTL0 (type: 1, cnt: 0)
+whisper_backend_init_gpu: using MTL0 backend
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M5 Pro
+ggml_metal_init: picking default device: Apple M5 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+whisper_backend_init: using BLAS backend
+whisper_init_state: kv self size  =   18.87 MB
+whisper_init_state: kv cross size =   56.62 MB
+whisper_init_state: kv pad  size  =    4.72 MB
+whisper_init_state: compute buffer (conv)   =   23.38 MB
+whisper_init_state: compute buffer (encode) =   39.45 MB
+whisper_init_state: compute buffer (cross)  =   79.93 MB
+whisper_init_state: compute buffer (decode) =   98.20 MB
+read_audio_data: reading audio data from '../../benchmarks/test_audio/technical_terms.wav' ...
+read_audio_data: trying to decode with miniaudio
+
+system_info: n_threads = 4 / 15 | WHISPER : COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | REPACK = 1 | 
+
+main: processing '../../benchmarks/test_audio/technical_terms.wav' (406165 samples, 25.4 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 0 ...
+
+
+ Today we are testing Whisper.cpp together with lama.cpp and evaluating quantization performance using Q5.0 and Q8.0 models. The application is written SwiftUI and integrates OML metal acceleration, Superbase, Postgres, Post, Cray, SQL and local large language models for text rewriting.
+whisper_print_timings:     load time =   121.05 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =     5.18 ms
+whisper_print_timings:   sample time =    41.75 ms /   317 runs (     0.13 ms per run)
+whisper_print_timings:   encode time =    63.96 ms /     1 runs (    63.96 ms per run)
+whisper_print_timings:   decode time =     2.43 ms /     1 runs (     2.43 ms per run)
+whisper_print_timings:   batchd time =   188.66 ms /   313 runs (     0.60 ms per run)
+whisper_print_timings:   prompt time =     0.00 ms /     1 runs (     0.00 ms per run)
+whisper_print_timings:    total time =   442.64 ms
+ggml_metal_free: deallocating
+real 0.55
+user 0.22
+sys 0.12
+
